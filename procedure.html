@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price List</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous" >
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        /*header*/
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #a37d2c46;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            color: #5f391d;
+        }
+        .logo img {
+            width: 110px;
+            height: 110px;
+        }
+        .site-title {
+            font-size: 34px;
+            font-weight: bold;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .site-description {
+            font-size: 19px;
+            margin-top: 5px;
+        }
+        .contact-info {
+            font-size: 19px;
+            display: flex;
+            align-items: center;
+            color: #5f391d;
+        }
+        .contact-info div {
+            margin-right: 10px;
+        }
+        .appointment-button {
+            color: #a37e2c;
+            border: none;
+            padding: 1px;
+            font-size: 16px;
+            margin: 5px;
+            width: 150px;
+            height: 60px;
+            cursor: pointer;
+            border-radius: 6px;
+            background-color: #006039;
+            box-shadow:   1px 3px 4px #006039;
+        }
+        @media screen and (max-width: 600px) {
+            .site-title {
+                font-size: 20px;
+            }
+
+            .site-description {
+                font-size: 15px;
+                }
+                    
+            .contact-info h5 {
+                font-size: 15px;
+            }
+        }
+        /*nav*/
+        .small-image {
+            width: 70px;
+            height: 70px;
+        }
+        .navbar-nav {
+            font-size: 20px;
+        }
+        .navbar {
+            border: 2px solid #a37e2c;
+        }
+        /*pricelist*/
+        .header1 {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 15px;
+            font-weight: bold;
+            color: #5f391d;
+            box-shadow: 0 2px 4px #006039;
+            border-radius: 10px;
+            
+        }
+        .logo1 {
+            width: 90px;
+            height: 90px;
+        }
+        .price-list {
+            margin: 0 auto;
+        }
+        .section-title {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 0;
+            box-shadow: 0 2px 4px #006039;
+            padding: 5px;
+            color: #a37e2c;
+            text-decoration: none;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        .item-name {
+            font-weight: bold;
+            color: #5f391d;
+        }
+        .item-price {
+            font-weight: bold;
+            color: #333;
+        }
+        @media only screen and (max-width: 680px) {
+        .logo1 {
+            display: none;
+        }
+        .section-title{
+            font-size:19px;
+        }
+        .header1 h1 {
+            font-size: 35px;
+        }
+        .section-title:not(:first-child) {
+            display: none;
+        }
+        }
+        .content {
+            padding-left: 90px;
+            padding-right: 90px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+
+
+        /*footer*/
+        footer {
+            display: grid ;
+            grid-template-columns: 1fr ,1fr ,1fr ,1fr ,1fr ;
+            grid-template-rows:1fr ,1fr ;
+            grid-template-areas: 
+            "footlogo footnav footnav1 footcontact footbutton"
+            "footlogo footnav footnav1 footcontact footbutton";
+            padding: 20px;
+            background-color: #a37d2c46;
+            position:relative ;
+            right: 0;
+            left: 0;
+            bottom: 0px;
+        }
+        .foot-logo {
+            grid-area: footlogo;
+        }
+        .foot-logo img {
+            width: 110px;
+            height: 110px;
+        }
+        .foot-nav {
+            grid-area: footnav;
+        }
+        .foot-nav1 {
+            grid-area: footnav1;
+        }
+        .foot-contact {
+            grid-area: footcontact;
+        }
+        .foot-button {
+            grid-area: footbutton;
+        }
+        .foot-title {
+            font-size: 34px;
+            font-weight: bold;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .foot-description{
+            font-size: 19px;
+            margin-top: 5px;
+        }
+        .appointment-foot {
+            border: none;
+            padding: 1px;
+            font-size: 16px;   
+            margin: 5px;
+            width: 150px;
+            height: 60px;
+            cursor: pointer;
+            border-radius: 6px;
+            background-color: #006039;
+            box-shadow:   1px 3px 4px #006039;
+        }
+        @media screen and (max-width: 950px) {
+            footer{
+                grid-template-columns: 1fr ,1fr  ,1fr;
+                grid-template-rows: 1fr ,1fr ;
+                grid-template-areas: "footlogo footnav  footnav1"
+                "footcontact footbutton footbutton ";
+            }
+            .appointment-foot{
+                height: 100px;
+                width: 300px;
+            }
+        }
+        @media screen and (max-width: 850px) {
+            footer{
+                grid-template-columns: 1.5fr ,1fr  ,1fr;
+                grid-template-rows: 1fr ,1fr ;
+                grid-template-areas: "footlogo footlogo  footbutton"
+                "footcontact footnav footnav1 ";
+            }
+            .appointment-foot{
+                height: 100px;
+                width: 110px;
+                padding: 10px;
+            }
+        }
+    </style>
+    </head>
+    <body>
+        <!--header-->
+
+        <header class="header">
+            <a href="index.html">
+                <div class="logo">
+                    <img src="ladorelogo.png" alt="Logo"> 
+                    <div>
+                        <h1 class="site-title">LA D'ORE</h1>
+                        <h2 class="site-description">Cosmetology Center in Astana</h2>
+                    </div>
+                </div>
+            </a>
+            <div class="contact-info">
+                <div>
+                    <h5 class="contact-text">22-18-68</h5>
+                    <h5 class="contact-text">Baitursynova str. 1</h5>
+                </div>
+                <button class="appointment-button"><a href="" style="color: #a37e2c;">Book Appointment</a></button>
+            </div>
+        </header>
+        <!--nav-->
+        <nav class="navbar navbar-expand-lg  bg-light navbar-light " style="background-color:#006039;">
+            <a class="navbar-brand" href="#"><img  src="LDlogotype.png" alt="" class="small-image"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="aboutus.html" style="color: #a37e2c;">About us<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="procedure.html" style="color: #a37e2c;">procedures</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="product.html" style="color: #a37e2c;">products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="feedback.html" style="color: #a37e2c;">feedback</a> 
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="contact.html" style="color: #a37e2c;">contact</a> 
+                </li>   
+            </ul>
+            </div>  
+        </nav>
+        <!--contentpricelist-->
+        <div class="content">
+            <div class="header1">
+                <img src="ldlogogtype2.png" alt="Logo" class="logo1">
+                <h1>Price List</h1>
+            </div>
+            <div class="price-list">
+                <a href=""><h2 class="section-title"><img width="30" height="30" src="https://img.icons8.com/carbon-copy/100/stones.png" alt="stones"/>Procedures<img width="30" height="30" src="https://img.icons8.com/carbon-copy/100/stones.png" alt="stones"/></h2></a>
+                <div class="item">
+                <span class="item-name">Anti-aging Massage</span>
+                <span class="item-price">$200</span>
+                </div>
+                <div class="item">
+                <span class="item-name">Liposuction</span>
+                <span class="item-price">$1500</span>
+                </div>
+                <div class="item">
+                <span class="item-name">Facial Massage</span>
+                <span class="item-price">$30</span>
+                </div>
+                <div class="item">
+                <span class="item-name">Relaxing Massage</span>
+                <span class="item-price">$25</span>
+                </div>
+                <div class="item">
+                <span class="item-name">Peeling Mask</span>
+                <span class="item-price">$40</span>
+                </div>
+                <div class="item">
+                <span class="item-name">Lip Filler</span>
+                <span class="item-price">$350</span>
+                </div>
+                <div class="item">
+                <span class="item-name">Face Bottox</span>
+                <span class="item-price">$600</span>
+                </div>
+                <div class="item">
+                <span class="item-name">Laser Hair Removal</span>
+                <span class="item-price">$140</span>
+                </div>
+            </div>
+        </div>
+        <!--footer-->
+        <footer>
+            <div class="foot-logo">
+                <div class="logo">
+                    <img src="ldlogogtype2.png" alt="Logo"> 
+                    <div>
+                        <h1 class="foot-title">LA D'ORE</h1>
+                        <h2 class="foot-description">Cosmetology Center in Astana</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="foot-nav">
+                <div><h5><a class="nav-link" href="aboutus.html" style="color: #5f391d;">About us</a></h5></div>
+                <div><h5><a class="nav-link" href="procedure.html" style="color: #5f391d;">Procedures</a></h5></div>
+            </div>
+            <div class="foot-nav1">
+                <div><h5><a class="nav-link" href="product.html" style="color: #5f391d;">Products</a></h5></div>
+                <div><h5><a class="nav-link" href="feedback.html" style="color: #5f391d;">Feedback</a></h5></div>
+            </div>
+            <div class="foot-contact">
+                <div><h5><a class="nav-link" href="contact.html" style="color: #5f391d;">Telephon: 22-18-68</a></h5></div>
+                <div><h5><a class="nav-link" href="contact.html" style="color: #5f391d;">E-mail:info@LaD'ore.kz</a></h5></div>
+            </div>
+            <div class="foot-button">
+                <button class="appointment-foot"><a href="contact.html" style="color: #a37e2c;">Book Appointment</a></button>
+            </div>
+        </footer>
+    </body>
+</html>

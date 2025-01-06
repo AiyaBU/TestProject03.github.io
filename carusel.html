@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .carousel-container {
+        position: relative;
+        width: 800px; 
+        margin: auto;
+        overflow: hidden;
+        padding: 10px;
+        font-family: 'Poppins', sans-serif;
+    }
+    .carousel {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+    .carousel-slide {
+        flex: 0 0 25%; 
+        padding: 30px;
+        box-sizing: border-box;
+        text-align: center;
+    }
+    .carousel-slide img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px; /* Rounded corners */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Shadow */
+    }
+    .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-size: 54px;
+        cursor: pointer;
+    }
+    .carousel-button.left {
+        left: 0px;
+    }
+    .carousel-button.right {
+        right: 0px;
+    }
+    .procedure-description {
+      font-family: 'Poppins', sans-serif;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      font-size: 65px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: 20px;
+      color: #333;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+      padding: 20px;
+    }
+    @media (max-width: 800px) {
+        .carousel-container {
+            width: 100%;
+        }
+        .carousel {
+            flex-wrap: nowrap;
+        }
+        .carousel-slide {
+            flex: 0 0 100%; 
+            padding: 10px;
+        }
+        .carousel-button {
+            display: none;
+        }
+    }
+    </style>
+</head>
+<body>
+    <h1 class="procedure-description">Procedures</h1>
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-slide">
+                <img src="photo1.jpg" alt="Anti-aging Massage">
+                <div><a href="">Anti-aging massage</a></div>
+            </div>
+            <div class="carousel-slide">
+                <img src="photo2.jpg" alt="Liposuction">
+                <div><a href="">Liposuction</a></div>
+            </div>
+            <div class="carousel-slide">
+                <img src="photo3.jpg" alt="Facial Massage">
+                <div><a href="">Facial Massage</a></div>
+            </div>
+            <div class="carousel-slide">
+                <img src="photo4.jpg" alt="Relaxing Massage">
+                <div><a href="">Relaxing Massage</a></div>
+            </div>
+            <div class="carousel-slide">
+                <img src="photo5.jpg" alt="Peeling Mask">
+                <div><a href="">Chemical Peeling Mask</a></div>
+            </div>
+            <div class="carousel-slide">
+                <img src="photo6.jpg" alt="Lip filler">
+                <div><a href="">Lip filler</a></div>
+            </div>
+            <div class="carousel-slide">
+                <img src="photo7.jpg" alt="Face Bottox">
+                <div><a href="">Face Bottox</a></div>
+            </div>
+            <div class="carousel-slide">
+                <img src="photo8.jpg" alt="Laser Hair Removal">
+                <div><a href="">Laser Hair Removal</a></div>
+            </div>
+        </div>
+        <button class="carousel-button left" onclick="previousSlide()">&#8249;</button>
+        <button class="carousel-button right" onclick="nextSlide()">&#8250;</button>
+    </div>
+</div>
+    <script>
+        const carouselContainer = document.querySelector('.carousel-container');
+        const carousel = document.querySelector('.carousel');
+        const carouselSlide = document.querySelectorAll('.carousel-slide');
+        const carouselButtonLeft = document.querySelector('.carousel-button.left');
+        const carouselButtonRight = document.querySelector('.carousel-button.right');
+        let slideIndex = 0;
+        carouselButtonLeft.addEventListener('click', previousSlide);
+        carouselButtonRight.addEventListener('click', nextSlide);
+        function showSlide() {
+                carousel.style.transform = `translateX(-${slideIndex * carouselSlide[0].offsetWidth}px)`;
+            }
+        function nextSlide() {
+            if (slideIndex < carouselSlide.length - 4) {
+                slideIndex++;
+            }
+            showSlide();
+        }
+        function previousSlide() {
+            if (slideIndex > 0) {
+                slideIndex--;
+            }
+            showSlide();
+        }
+        showSlide();
+    </script>
+</body>
+</html>
